@@ -5,3 +5,4 @@ MongoDB-user:root
 MongoDB-passwd:000000
 
 hive-user:root
+hive-passwd:qwerty
