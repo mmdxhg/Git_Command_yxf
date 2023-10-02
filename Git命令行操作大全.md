@@ -118,3 +118,20 @@ git merge [其他分支名称]
 
 ```
 
+### 3.2 分支的冲突问题
+
+分支的冲突问题经常出现在多人协作的场景里。假设有这样一个文件Passwd.txt中保存着多个数据库的配置信息,其中Mysql的数据库密码为123456，MongoDB数据库的密码是456789.而在整个业务环境中，Mysql的维护是由工作人员Red负责，MongoDB数据库的维护则是由Blue负责。不巧的是在某一天当中，这两个数据库的密码都要被更改为000000，两人于同一天修改且于同一天进行提交。一旦遭遇这种情况，那么冲突就会发生。
+
+**测试准备**
+
+```
+1.准备一个文件，文件名称为 passwd.txt ; 文件中的信息如下
+mysql-user:root
+mysql-passwd:123456
+
+MongoDB-user:root
+MongoDB-passwd:456789
+
+2.准备两个分支followerRed followerBlue,其中Red用来修改Mysql的密码,Blue用来修改MongoDB的密码
+```
+
