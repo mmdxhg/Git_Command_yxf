@@ -1,0 +1,5 @@
+mysql-user:root
+mysql-passwd:123456
+
+MongoDB-user:root
+MongoDB-passwd:456789
