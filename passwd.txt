@@ -2,4 +2,4 @@ mysql-user:root
 mysql-passwd:123456
 
 MongoDB-user:root
-MongoDB-passwd:456789
+MongoDB-passwd:000000
