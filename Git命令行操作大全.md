@@ -122,9 +122,9 @@ git merge [其他分支名称]
 
 分支的冲突问题经常出现在多人协作的场景里。假设有这样一个文件Passwd.txt中保存着多个数据库的配置信息,其中Mysql的数据库密码为123456，MongoDB数据库的密码是456789.而在整个业务环境中，Mysql的维护是由工作人员Red负责，MongoDB数据库的维护则是由Blue负责。不巧的是在某一天当中，这两个数据库的密码都要被更改为000000，两人于同一天修改且于同一天进行提交。一旦遭遇这种情况，那么冲突就会发生。
 
-**测试准备**
+**测试准备及实现**
 
-```
+```shell
 1.准备一个文件，文件名称为 passwd.txt ; 文件中的信息如下
 mysql-user:root
 mysql-passwd:123456
@@ -139,11 +139,43 @@ MongoDB-passwd:456789
 4.这两个分支在各自的分支下都要进行add和commit操作.
 
 5.切换回master分支,随后进行合并操作
+git merge followerRed
+git merge followerBlue
 
 6.页面返回了如下信息,标识当前自动合并出现错误.申请手动修改
+Auto-merging passwd.txt
+CONFLICT (content): Merge conflict in passwd.txt
+Automatic merge failed; fix conflicts and then commit the result.
 
 7.打开文件后,文件的内容如下:
 
+mysql-user:root
+mysql-passwd:000000
 
+MongoDB-user:root
+MongoDB-passwd:000000
+
+<<<<<<< HEAD
+hive-user:root
+=======
+hive-passwd:qwerty
+>>>>>>> followerBlue
+
+注释:在这段代码中 ======= 为分割符号,<<<<<<< HEAD为文件本来的信息,>>>>>>> followerBlue为冲突的内容
+也就是说 <<<<<< 到 ====== 与 ======= 到 >>>>>>> 之间的内容就是有冲突,需要手动修改
+手动修改后的内容为
+mysql-user:root
+mysql-passwd:000000
+
+MongoDB-user:root
+MongoDB-passwd:000000
+
+hive-user:root
+hive-passwd:qwerty
+
+8.修改之后,继续执行add 和 commit命令,不过commit命令与之间的不太一样,不用带上文件名
+git add passwd.txt
+git commit 
+注释:当发生冲突时,命令行的提示符会出现(分支名|merging)的字样,提交之后,这个字样会重新变成(分支名)
 ```
 
