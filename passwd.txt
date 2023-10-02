@@ -4,4 +4,3 @@ mysql-passwd:000000
 MongoDB-user:root
 MongoDB-passwd:000000
 
-yy
