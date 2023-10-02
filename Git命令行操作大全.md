@@ -132,6 +132,18 @@ mysql-passwd:123456
 MongoDB-user:root
 MongoDB-passwd:456789
 
-2.准备两个分支followerRed followerBlue,其中Red用来修改Mysql的密码,Blue用来修改MongoDB的密码
+2.准备两个分支followerRed followerBlue,其中Red用来添加hive的用户为root,Blue用来添加hive的密码为qwerty
+
+3.在Red分支添加如下内容:hive-user:root,在Bulue分支添加如下内容:hive-passwd:qwerty
+
+4.这两个分支在各自的分支下都要进行add和commit操作.
+
+5.切换回master分支,随后进行合并操作
+
+6.页面返回了如下信息,标识当前自动合并出现错误.申请手动修改
+
+7.打开文件后,文件的内容如下:
+
+
 ```
 
