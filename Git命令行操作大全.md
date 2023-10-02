@@ -37,3 +37,40 @@ git add [fileName]
 git commit -m "这是第一次提交" [fileName]
 ```
 
+## 2.如何将文件推送到远端服务器（以Github为例）
+
+在第一部分，已经将文件提交到了本地库。接下来要做的就是将本地库中的文件信息提交到远端服务器（Github）
+
+### 2.1 通过 ssh 配置Git hub的免密登录
+
+a.在安装了Git之后，在系统盘的用户目录下会出现一个名为.ssh的文件夹。进入到这个文件夹当中使用命令行cmd的方式执行如下命令来生成属于你这台电脑的ssh密钥。
+
+```
+ssh-keygen -t rsa 
+执行这个命令之后，连续敲击三下回车，保证密钥生成结束
+```
+
+b.在保证拥有密钥的情况下，进入到github网站。在登录的状态下点击右上角的头像内部的setting按钮，进入到设置页面。
+
+c.在Setting页面左侧的Access的菜单内找到SSH and GPG keys . 然后进入到对应页面.
+
+d.在c步骤进入到的页面当中点击 [New SSH Key] 按钮,将步骤a生成的名为id_rsa.pub的文件中的内容复制到输入框当中.
+
+e.点击保存,ssh免密功能设置成功.
+
+### 2.2 将文件提交到远端仓库
+
+在保证了远端仓库拥有了本地的ssh密钥之后,接下来就可以进行代码的远端提交操作了.
+
+```shell
+1.复制远端仓库的ssh链接
+位置:创建远端仓库 - 进入远端仓库 - 点击页面中绿色的code按钮 - 在local下点击ssh - 复制ssh链接
+2.将ssh链接重新命名
+git remote add [called] [ssh_link] 
+eg: git remote add gittest https://github.com/mmdxhg/git_test.git
+3.将文件提交到远端仓库
+git push [called] [branchName]
+called ssh链接的假名
+branchName 当前要提交的分支的名称
+```
+
