@@ -251,8 +251,7 @@ Copy code
 //获取当前链接的代码 https://github.com/mmdxhg/Git_Command_yxf.git
 1.直接下载，可以通过进入当前链接获取
 ```
-
-![image-20231004141428851](E:\GitNode\Git命令行\Git_Command_yxf\pic\image-20231004141428851.png)
+![image]([https://github.com/lexsaints/powershell/blob/master/IMG/ps2.png](https://github.com/mmdxhg/Git_Command_yxf/blob/master/pic/image-20231004141428851.png))
 
 ```
 2.通过clone命令获取
