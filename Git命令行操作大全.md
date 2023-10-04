@@ -7,7 +7,6 @@
 ```
 如果无法正常显示中文而不是乱码信息，可以执行如下命令
 git config --global core.quotepath false
-
 ```
 
 参考链接如下：[git status 显示中文和解决中文乱码_git status 中文-CSDN博客](https://blog.csdn.net/u012145252/article/details/81775362#解决git bash 终端显示中文乱码)
@@ -243,3 +242,23 @@ Copy code
 ```
 
 ## 5.克隆远端代码
+
+远端的代码是被保存在Github服务器、Gitee服务器、或者是自行搭建的gitlab上.这个时候如若想要获取到相应的代码应该怎么做？
+
+答：将远端代码下载到本地即可。
+
+```
+//获取当前链接的代码 https://github.com/mmdxhg/Git_Command_yxf.git
+1.直接下载，可以通过进入当前链接获取
+```
+
+![image-20231004141428851](E:\GitNode\Git命令行\Git_Command_yxf\pic\image-20231004141428851.png)
+
+```
+2.通过clone命令获取
+git clone https://github.com/mmdxhg/Git_Command_yxf.git
+
+3.通过pull命令获取，不过这种下载方式需要git init 初始化一下
+git pull https://github.com/mmdxhg/Git_Command_yxf.git master
+```
+
